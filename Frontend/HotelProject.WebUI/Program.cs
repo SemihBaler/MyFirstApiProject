@@ -1,3 +1,6 @@
+using HotelProject.DataAccesLayer.Concrete;
+using HotelProject.EntityLayer.Concrete;
+
 namespace HotelProject.WebUI
 {
     public class Program
@@ -7,6 +10,9 @@ namespace HotelProject.WebUI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<Context>();
+            builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
+
             builder.Services.AddControllersWithViews();
             builder.Services.AddHttpClient();
             builder.Services.AddAutoMapper(typeof(Program));
@@ -27,7 +33,7 @@ namespace HotelProject.WebUI
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Staff}/{action=Index}/{id?}");
+                pattern: "{controller=Login}/{action=Index}/{id?}");
 
             app.Run();
         }
