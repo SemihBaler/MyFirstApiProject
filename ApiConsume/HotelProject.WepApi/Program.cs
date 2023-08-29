@@ -31,6 +31,10 @@ namespace HotelProject.WepApi
             builder.Services.AddScoped<IServiceDal, EFServiceDal>();
             builder.Services.AddScoped<IServiceService, ServiceManager>();
 
+            builder.Services.AddScoped<IAboutService,AboutManager >();
+            builder.Services.AddScoped<IAboutDal,EFAboutDal>();
+
+
             builder.Services.AddAutoMapper(typeof(Program));
 
             builder.Services.AddCors(opt =>
