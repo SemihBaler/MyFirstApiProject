@@ -19,7 +19,9 @@
         @await Component.InvokeAsync("_ServiceComponent")
         @await Component.InvokeAsync("_TestimonialComponent")
         @await Component.InvokeAsync("_TeamComponent")
-        @await Component.InvokeAsync("_NewsComponent")
+        @*@await Component.InvokeAsync("_NewsComponent")*@
+        @*@await Html.PartialAsync("_NewsPartial")*@
+        <partial name="_NewsPartial" />
         @await Component.InvokeAsync("_FooterComponent")
 
         <!-- Back to Top -->
