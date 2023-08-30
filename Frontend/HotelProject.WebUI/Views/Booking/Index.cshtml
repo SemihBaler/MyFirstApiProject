@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_HeadComponent")
+<body>
+    <div class="container-xxl bg-white p-0">
+
+        @await Component.InvokeAsync("_SpinnerComponent")
+        @await Component.InvokeAsync("_NavbarComponent")
+        @await Component.InvokeAsync("_BookingCoverComponent")
+        @await Component.InvokeAsync("_ReservationComponent")
+        <Partial name="AddBooking"/>
+
+
+        @*@await Component.InvokeAsync("_NewsComponent")*@
+        @*@await Html.PartialAsync("_NewsPartial")*@
+        <partial name="/Views/Default/_NewsPartial.cshtml" />
+        @await Component.InvokeAsync("_FooterComponent")
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    @await Component.InvokeAsync("_ScriptsComponent")
+
+
+</body>
+</html>

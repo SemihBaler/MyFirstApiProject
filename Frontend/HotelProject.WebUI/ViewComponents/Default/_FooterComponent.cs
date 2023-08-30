@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace HotelProject.WebUI.ViewComponents
+namespace HotelProject.WebUI.ViewComponents.Default
 {
-    public class _SliderComponent : ViewComponent
+    public class _FooterComponent : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

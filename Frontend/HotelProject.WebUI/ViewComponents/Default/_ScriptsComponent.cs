@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace HotelProject.WebUI.ViewComponents
+namespace HotelProject.WebUI.ViewComponents.Default
 {
-    public class _SpinnerComponent : ViewComponent
+    public class _ScriptsComponent : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

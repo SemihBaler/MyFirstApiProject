@@ -1,15 +1,14 @@
-﻿using HotelProject.WebUI.Dtos.RoomDtos;
-using HotelProject.WebUI.Dtos.ServiceDtos;
+﻿using HotelProject.WebUI.Dtos.StaffDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace HotelProject.WebUI.ViewComponents
+namespace HotelProject.WebUI.ViewComponents.Default
 {
-    public class _OurRoomsComponent : ViewComponent
+    public class _TeamComponent : ViewComponent
     {
-
         private readonly IHttpClientFactory _httpClientFactory;
-        public _OurRoomsComponent(IHttpClientFactory httpClientFactory)
+
+        public _TeamComponent(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -17,12 +16,12 @@ namespace HotelProject.WebUI.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5038/api/Room");
+            var responseMessage = await client.GetAsync("http://localhost:5038/api/Staff");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var json = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultRoomDto>>(json);
-                return View(values);
+                var value = JsonConvert.DeserializeObject<List<ResultStaffDto>>(json);
+                return View(value);
             }
             return View();
         }

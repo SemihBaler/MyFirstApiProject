@@ -34,6 +34,9 @@ namespace HotelProject.WepApi
             builder.Services.AddScoped<IAboutService,AboutManager >();
             builder.Services.AddScoped<IAboutDal,EFAboutDal>();
 
+            builder.Services.AddScoped<IBookingDal,EFBookingDal>();
+            builder.Services.AddScoped<IBookingService,BookingManager>();
+
 
             builder.Services.AddAutoMapper(typeof(Program));
 

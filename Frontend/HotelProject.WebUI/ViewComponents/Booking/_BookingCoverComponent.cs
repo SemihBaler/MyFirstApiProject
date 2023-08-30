@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace HotelProject.WebUI.ViewComponents
+namespace HotelProject.WebUI.ViewComponents.Booking
 {
-    public class _HeadComponent : ViewComponent
+    public class _BookingCoverComponent:ViewComponent
     {
         public IViewComponentResult Invoke()
         {

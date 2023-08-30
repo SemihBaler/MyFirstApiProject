@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace HotelProject.WebUI.ViewComponents
+namespace HotelProject.WebUI.ViewComponents.Default
 {
-    public class _TrailerComponent : ViewComponent
+    public class _NavbarComponent : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
