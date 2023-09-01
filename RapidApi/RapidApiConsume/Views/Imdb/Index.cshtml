@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Index";
+
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+@model List<ApiMovieVM>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>İsim</th>
+        <th>Açıklama</th>
+        <th>Resim</th>
+        <th>Rating</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.rank</th>
+            <td>@item.title</td>
+            <td>@item.description</td>
+            <td><img src="@item.image" style="height:auto;width:100px"></td>
+            <td>@item.rating</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+    int count = 0;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+@model List<HotelApiVM>
+
+<div class="container container-xlg" style="margin-top:50px">
+    <table class="table table-bordered table-striped d-print-table-cell">
+        <form asp-action="Index" asp-controller="Hotel" method="post">
+            <label class="form-label">Şehir Adını Giriniz</label>
+            <input type="text" class="form-control" name="city" placeholder="Şehir Adı"></input>
+            <br /><br />
+        <tr>
+            <th>#</th>
+            <th>#</th>
+            <th>#</th>
+            <th>#</th>
+            <th>#</th>
+            <th>#</th>
+       
+        </tr>
+            @foreach (var item in Model)
+            {
+                count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.country</td>
+                <td>@item.city_name</td>
+                <td>@item.name</td>
+                <td><img style="width:120px;height:auto" src="@item.image_url"></td>
+                <td><a href="#" class=" btn btn-outline-dark">Detaylar</a></td>
+            </tr>
+            }
+        </form>
+    </table>
+</div>
+
+<style>
+    .table td {
+        text-align: center; /* Hücre içeriğini ortala */
+        vertical-align: middle; /* Hücre içeriğini ortala */
+    }
+</style>

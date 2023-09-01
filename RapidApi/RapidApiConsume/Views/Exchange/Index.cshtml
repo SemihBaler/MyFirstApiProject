@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+@model List<ExchangeVM.Datum>
+<div class="container container-lg my-3">
+<table class="table table-bordered">
+    <tr>
+        <th>Kod</th>
+        <th>encodedSymbol</th>
+        <th>Ad</th>
+        <th>Sembol</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.code</td>
+            <td>@item.encodedSymbol</td>
+            <td>@item.name</td>
+            <td>@item.symbol</td>
+        </tr>
+    }
+</table>
+</div>
+
