@@ -44,5 +44,24 @@ namespace HotelProject.WepApi.Controllers
             var values = _bookingService.TGetById(id);
             return Ok(values);
         }
-    }
+        [HttpGet("BookingApproved")]
+        public IActionResult BookingApproved(int id)
+        {
+           _bookingService.TBookingStatusChangeApproved(id);
+            return Ok();
+        }
+        [HttpGet("BookingCancel")]
+        public IActionResult BookingCancel(int id)
+        {
+            _bookingService.TBookingStatusChangeCancel(id);
+            return Ok();
+        }
+        [HttpGet("BookingHold")]
+        public IActionResult BookingHold(int id)
+        {
+            _bookingService.TBookingStatusChangeHold(id);
+            return Ok();
+        }
+
+    } 
 }

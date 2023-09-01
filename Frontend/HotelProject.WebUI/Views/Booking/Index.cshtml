@@ -10,10 +10,35 @@
 
         @await Component.InvokeAsync("_SpinnerComponent")
         @await Component.InvokeAsync("_NavbarComponent")
+       
         @await Component.InvokeAsync("_BookingCoverComponent")
         @await Component.InvokeAsync("_ReservationComponent")
+        @if (TempData["Success"] is not null)
+        {
+            <div class="alert alert-success notification" role="alert">
+                @TempData["Success"]
+            </div>
+            <script>
+                @*// Close the success alert after 5 seconds (5000 milliseconds)*@
+                setTimeout(function () {
+                    $('.alert-success').fadeOut('slow');
+                }, 3000);
+            </script>
+        }
+        @if (TempData["Error"] is not null)
+        {
+            <div class="alert alert-danger notification" role="alert">
+                @TempData["Error"]
+            </div>
+            <script>
+                @*// Close the error alert after 5 seconds (5000 milliseconds)*@
+                setTimeout(function () {
+                    $('.alert-danger').fadeOut('slow');
+                }, 3000);
+            </script>
+        }
         <Partial name="AddBooking"/>
-
+       
 
         @*@await Component.InvokeAsync("_NewsComponent")*@
         @*@await Html.PartialAsync("_NewsPartial")*@
@@ -29,3 +54,4 @@
 
 </body>
 </html>
+

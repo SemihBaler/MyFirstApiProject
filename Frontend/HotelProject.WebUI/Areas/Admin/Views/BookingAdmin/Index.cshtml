@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+@model List<ResultBookingDto>
+
+<div class="card-title">
+    <h4>Rezervasyonlar</h4>
+</div>
+@if (TempData["Success"] is not null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+    <script>
+        @*// Close the success alert after 5 seconds (5000 milliseconds)*@
+            setTimeout(function(){
+                $(".alert-success").fadeOut("slow");
+            },1200);
+    </script>
+}
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Misafir</th>
+                <th>Giriş Tarihi</th>
+                <th>Çıkış Tarihi</th>
+                <th>Durum</th>
+                <th>Onayla</th>
+                <th>İptal Et</th>
+                <th>Beklet</th>
+                <th>Güncelle</th>
+                <th>Detaylar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                TempData["Id"] = item.BookingId;
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.Name</td>
+                    <td>@item.CheckIn</td>
+                    <td>@item.CheckOut</td>
+                    <td>
+                        <span class="badge badge-primary px-2">@item.Status</span>
+                    </td>
+                    @*     <td><a href="/Admin/BookingAdmin/ApprovedRezervation/@item.BookingId" class="btn btn-outline-primary">Onayla</a></td>*@
+                    <td><a href="/Admin/BookingAdmin/ApprovedRezervation/@item.BookingId" class="btn btn-outline-primary">Onayla</a></td>
+                    <td><a href="/Admin/BookingAdmin/CancelRezervation/@item.BookingId" class="btn btn-outline-danger">İptal Et</a></td>
+                    <td><a href="/Admin/BookingAdmin/HoldRezervation/@item.BookingId" class="btn btn-outline-warning">Beklet</a></td>
+                    <td><a href="#" class="btn btn-outline-info">Güncelle</a></td>
+                    <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

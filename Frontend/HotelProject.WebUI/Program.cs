@@ -11,7 +11,7 @@ namespace HotelProject.WebUI
 
             // Add services to the container.
             builder.Services.AddDbContext<Context>();
-            builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
+            builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddHttpClient();
@@ -27,7 +27,7 @@ namespace HotelProject.WebUI
             app.UseStaticFiles();
 
             app.UseRouting();
-            
+
 
             app.UseAuthorization();
 
@@ -35,6 +35,9 @@ namespace HotelProject.WebUI
                 name: "default",
                 pattern: "{controller=Default}/{action=Index}/{id?}");
 
+            app.MapControllerRoute(
+                 name: "areas",
+                 pattern: "{area:exists}/{controller=BookingAdmin}/{action=Index}/{id?}");
             app.Run();
         }
     }
